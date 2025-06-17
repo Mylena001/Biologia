@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portal educativo de Biologia com curiosidades, quizzes, e desafios para aprender de maneira divertida!">
+    <meta name="keywords" content="biologia, ciências, quiz, desafios, curiosidades">
     <title>Biologia Fácil</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,31 +16,124 @@
                 <li><a href="#intro">Introdução</a></li>
                 <li><a href="#ramos">Ramos da Biologia</a></li>
                 <li><a href="#curiosidades">Curiosidades</a></li>
+                <li><a href="#quiz">Quiz</a></li>
+                <li><a href="#glossario">Glossário</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#videos">Vídeos</a></li>
+                <li><a href="#desafios">Desafios</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
+        <!-- Introdução -->
         <section id="intro">
             <h2>O que é Biologia?</h2>
             <p>A Biologia é a ciência que estuda os seres vivos, sua estrutura, funcionamento, evolução, origem e as interações com o ambiente.</p>
+            <p>No Ensino Médio, a disciplina de biologia abrange diversos tópicos, como células, genética, ecologia, anatomia e fisiologia humana, entre outros. A disciplina busca promover uma compreensão geral dos conceitos fundamentais da biologia e aprofundar o conhecimento dos processos biológicos mais importantes.</p>
+            <p>A Biologia é uma disciplina que estuda a vida em todas as suas formas. Desde a mais simples bactéria até os organismos mais complexos, como seres humanos e animais, a biologia busca entender as características e processos que regem a vida.</p>
+<p>O termo "biologia" vem do grego "bios", que significa vida, e "logos", que significa estudo ou ciência. Dessa forma, a biologia pode ser definida como a ciência que estuda a vida.</p>
+<p>O estudo em biologia pode ser importante para a humanidade de diversas formas. Por exemplo, a compreensão da biologia dos microrganismos é fundamental para o desenvolvimento de novas vacinas e tratamentos para doenças infecciosas. A pesquisa em biologia também é fundamental para entender como as espécies interagem com seus ambientes e como podemos preservar a biodiversidade e os ecossistemas.</p>
+
         </section>
 
+        <!-- Ramos da Biologia -->
         <section id="ramos">
             <h2>Principais Ramos da Biologia</h2>
             <ul>
-                <li><strong>Botânica:</strong> estudo das plantas</li>
-                <li><strong>Zoologia:</strong> estudo dos animais</li>
-                <li><strong>Genética:</strong> estudo dos genes e hereditariedade</li>
-                <li><strong>Ecologia:</strong> estudo das relações entre seres vivos e o ambiente</li>
-                <li><strong>Microbiologia:</strong> estudo de micro-organismos</li>
+                <li><strong>Botânica:</strong> Estudo das plantas</li>
+                <li><strong>Zoologia:</strong> Estudo dos animais</li>
+                <li><strong>Genética:</strong> Estudo dos genes e hereditariedade</li>
+                <li><strong>Ecologia:</strong> Estudo das relações entre seres vivos e o ambiente</li>
+                <li><strong>Microbiologia:</strong> Estudo de micro-organismos</li>
             </ul>
         </section>
 
+        <!-- Curiosidades -->
         <section id="curiosidades">
             <h2>Curiosidades Biológicas</h2>
             <p id="curiosidadeTexto">Clique no botão abaixo para ver uma curiosidade.</p>
             <button onclick="mostrarCuriosidade()">Mostrar Curiosidade</button>
+            <div id="curiosidadeDetails" style="display: none;">
+                <p id="detalhesCuriosidade"></p>
+                <img id="curiosidadeImagem" src="" alt="Imagem Curiosidade" />
+                <button onclick="mostrarProximaCuriosidade()">Próxima Curiosidade</button>
+            </div>
+        </section>
+
+        <!-- Quiz -->
+        <section id="quiz">
+            <h2>Teste seus Conhecimentos</h2>
+            <form id="quizForm">
+                <p>1. Qual é o maior órgão do corpo humano?</p>
+                <input type="radio" id="op1" name="q1" value="Coração"><label for="op1">Coração</label><br>
+                <input type="radio" id="op2" name="q1" value="Pele"><label for="op2">Pele</label><br>
+                <input type="radio" id="op3" name="q1" value="Fígado"><label for="op3">Fígado</label><br>
+                <input type="radio" id="op4" name="q1" value="Pulmões"><label for="op4">Pulmões</label><br>
+
+                <p>2. Qual célula é responsável pelo transporte de oxigênio no sangue?</p>
+                <input type="radio" id="op5" name="q2" value="Glóbulo Branco"><label for="op5">Glóbulo Branco</label><br>
+                <input type="radio" id="op6" name="q2" value="Glóbulo Vermelho"><label for="op6">Glóbulo Vermelho</label><br>
+                <input type="radio" id="op7" name="q2" value="Plaqueta"><label for="op7">Plaqueta</label><br>
+                <input type="radio" id="op8" name="q2" value="Leucócito"><label for="op8">Leucócito</label><br>
+
+                <p>3. Qual é a principal função das mitocôndrias?</p>
+                <input type="radio" id="op9" name="q3" value="Produzir proteínas"><label for="op9">Produzir proteínas</label><br>
+                <input type="radio" id="op10" name="q3" value="Realizar fotossíntese"><label for="op10">Realizar fotossíntese</label><br>
+                <input type="radio" id="op11" name="q3" value="Gerar energia (ATP)"><label for="op11">Gerar energia (ATP)</label><br>
+                <input type="radio" id="op12" name="q3" value="Armazenar nutrientes"><label for="op12">Armazenar nutrientes</label><br>
+
+                <button type="button" onclick="verificarResposta()">Enviar</button>
+            </form>
+            <p id="resultado"></p>
+        </section>
+
+        <!-- Glossário -->
+        <section id="glossario">
+            <h2>Glossário de Termos Biológicos</h2>
+            <ul>
+                <li><strong>Celular:</strong> Relativo à célula.</li>
+                <li><strong>Genética:</strong> Estudo dos genes e hereditariedade.</li>
+                <li><strong>Ecossistema:</strong> Sistema formado por seres vivos e o meio ambiente.</li>
+            </ul>
+        </section>
+
+        <!-- Galeria -->
+        <section id="galeria">
+            <h2>Galeria de Imagens</h2>
+            <div class="galeria-imagens">
+                <img src="https://img.freepik.com/premium-photo/blueprint-life-striking-blue-dna-strand-illustrating-complexity-beauty-genetics-created-with-generative-ai-technology_27525-19477.jpg" alt="Imagem 1">
+                <img src="https://th.bing.com/th/id/OIP.rLnnGNzp5xfmWMLunQL2DwHaHa?r=0&rs=1&pid=ImgDetMain" alt="Imagem 2">
+                <img src="https://th.bing.com/th/id/OIP.hZV3dK1kRgm_iDBEoWGiZwHaFN?w=281&h=198&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" alt="Imagem 3">
+            </div>
+        </section>
+
+        <!-- Vídeos -->
+        <section id="videos">
+            <h2>Vídeos Educativos</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/rjH2xzCwNx0?si=G1i7NJliIOCpMFvI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/I_KaAQV8hZw?si=uYrkC0PxVv-3E__R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        </section>
+
+        <!-- Desafios Semanais -->
+        <section id="desafios">
+            <h2>Desafio da Semana</h2>
+            <p>1. Qual é o nome do processo biológico responsável pela produção de energia nas células?</p>
+            <input type="text" id="respostaDesafio1" placeholder="Sua resposta...">
+            <button onclick="verificarDesafio(1)">Enviar Resposta</button>
+            <p id="resultadoDesafio1"></p>
+
+            <p>2. Qual é o nome do processo de divisão celular que gera células idênticas?</p>
+            <input type="text" id="respostaDesafio2" placeholder="Sua resposta...">
+            <button onclick="verificarDesafio(2)">Enviar Resposta</button>
+            <p id="resultadoDesafio2"></p>
+
+            <p>3. Qual é a célula responsável pela defesa do corpo humano?</p>
+            <input type="text" id="respostaDesafio3" placeholder="Sua resposta...">
+            <button onclick="verificarDesafio(3)">Enviar Resposta</button>
+            <p id="resultadoDesafio3"></p>
         </section>
     </main>
 
