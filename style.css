@@ -324,3 +324,169 @@ body.loaded #loader-wrapper {
   opacity: 0;
   visibility: hidden;
 }
+
+
+
+/* Estilo com tema natureza para Biologia Fácil */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom, #dff0d8, #b2dfdb);
+  color: #2e4e1f;
+  margin: 0;
+  padding: 0;
+  transition: background 0.3s ease;
+}
+
+header {
+  background-color: #388e3c;
+  color: #ffffff;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 10px 0 0;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: #66bb6a;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #81c784;
+}
+
+main {
+  padding: 20px;
+}
+
+section {
+  background-color: #f1f8e9;
+  border: 1px solid #c8e6c9;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+section:hover {
+  transform: translateY(-5px);
+}
+
+h2 {
+  color: #2e7d32;
+  margin-top: 0;
+}
+
+button {
+  background-color: #43a047;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #66bb6a;
+}
+
+footer {
+  background-color: #2e7d32;
+  color: white;
+  text-align: center;
+  padding: 12px 0;
+}
+
+.galeria-imagens img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+
+.galeria-imagens img:hover {
+  transform: scale(1.05);
+}
+
+.badge-animada {
+  font-size: 24px;
+  color: #ffca28;
+  animation: pulse 1s infinite;
+  text-align: center;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* Carregamento */
+.loader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: #dcedc8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+.loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader .leaf {
+  width: 60px;
+  height: 60px;
+  background: url('https://cdn-icons-png.flaticon.com/512/616/616408.png') no-repeat center/contain;
+  animation: rotateLeaf 1.2s linear infinite;
+}
+
+@keyframes rotateLeaf {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media screen and (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .galeria-imagens {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  iframe {
+    width: 100%;
+    height: auto;
+  }
+}
