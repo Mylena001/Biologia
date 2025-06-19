@@ -186,3 +186,57 @@ function exportarResultado() {
     link.click();
   });
 }
+
+
+// Função: mostrar seção com animação ao rolar
+function animarSecoesAoRolar() {
+  const secoes = document.querySelectorAll('.section');
+  const trigger = window.innerHeight * 0.85;
+
+  secoes.forEach(secao => {
+    const topo = secao.getBoundingClientRect().top;
+
+    if (topo < trigger) {
+      secao.classList.add('visible');
+    }
+  });
+}
+
+// Ativa quando rola ou carrega
+window.addEventListener('scroll', animarSecoesAoRolar);
+window.addEventListener('load', animarSecoesAoRolar);
+
+
+// Atualiza a barra de leitura conforme o scroll
+window.addEventListener('scroll', () => {
+  const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollAtual = window.scrollY;
+  const progresso = (scrollAtual / scrollTotal) * 100;
+  document.getElementById('progresso-leitura').style.width = `${progresso}%`;
+});
+
+
+// Abrir vídeo no modal
+document.querySelectorAll('.video-thumbnail').forEach(thumb => {
+  thumb.addEventListener('click', () => {
+    const videoURL = thumb.getAttribute('data-video');
+    const modal = document.getElementById('videoModal');
+    const iframe = document.getElementById('videoFrame');
+    iframe.src = videoURL;
+    modal.style.display = 'flex';
+  });
+});
+
+// Fechar modal
+document.querySelector('.fechar-modal').addEventListener('click', () => {
+  const modal = document.getElementById('videoModal');
+  const iframe = document.getElementById('videoFrame');
+  iframe.src = "";
+  modal.style.display = 'none';
+});
+
+
+// Remove o loader após o carregamento da página
+window.addEventListener("load", () => {
+  document.body.classList.add("loaded");
+});
