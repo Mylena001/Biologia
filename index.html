@@ -21,9 +21,14 @@
     </style>
 </head>
 <body>
+    <div id="loader-wrapper">
+  <div id="loader"></div>
+  <p class="loader-text">Carregando Biologia Fácil...</p>
+</div>
+
     <header>
         <h1>Biologia Fácil</h1>
-        <nav>
+ <nav>
             <ul>
                 <li><a href="#intro">Introdução</a></li>
                 <li><a href="#ramos">Ramos da Biologia</a></li>
@@ -35,6 +40,7 @@
                 <li><a href="#desafios">Desafios</a></li>
             </ul>
         </nav>
+
     </header>
 
     <main>
@@ -130,14 +136,23 @@
             </div>
         </section>
 
-              <!-- Vídeos -->
-        <section id="videos">
-            <h2>Vídeos Educativos</h2>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/rjH2xzCwNx0?si=G1i7NJliIOCpMFvI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+       <section id="videos" class="section">
+  <h2>Vídeos Educativos</h2>
+  <div class="video-thumbnail" data-video="https://www.youtube.com/embed/rjH2xzCwNx0">
+    <img src="https://img.youtube.com/vi/rjH2xzCwNx0/hqdefault.jpg" alt="Vídeo 1">
+  </div>
+  <div class="video-thumbnail" data-video="https://www.youtube.com/embed/I_KaAQV8hZw">
+    <img src="https://img.youtube.com/vi/I_KaAQV8hZw/hqdefault.jpg" alt="Vídeo 2">
+  </div>
+</section>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/I_KaAQV8hZw?si=uYrkC0PxVv-3E__R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-        </section>
+<!-- Modal de vídeo -->
+<div id="videoModal" class="modal">
+  <div class="modal-conteudo">
+    <span class="fechar-modal">&times;</span>
+    <iframe id="videoFrame" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
 
         <!-- Desafios Semanais -->
         <section id="desafios">
@@ -166,5 +181,7 @@
     <audio id="som-badge" src="https://www.fesliyanstudios.com/play-mp3/387" preload="auto"></audio>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="script.js"></script>
+    <div id="progresso-leitura"></div>
+
 </body>
 </html>
