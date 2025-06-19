@@ -92,3 +92,97 @@ function verificarDesafio(desafio) {
         }
     }
 }
+
+function mostrarCuriosidade() {
+  const curiosidades = [
+    { texto: "O DNA humano tem cerca de 3 bilhões de pares de bases!", imagem: "https://img.freepik.com/premium-photo/blueprint-life-striking-blue-dna-strand-illustrating-complexity-beauty-genetics-created-with-generative-ai-technology_27525-19477.jpg" },
+    { texto: "Os polvos têm três corações!", imagem: "https://th.bing.com/th/id/OIP.rLnnGNzp5xfmWMLunQL2DwHaHa?r=0&rs=1&pid=ImgDetMain" },
+    { texto: "O coração de uma baleia azul pesa mais de 150 kg!", imagem: "https://th.bing.com/th/id/OIP.hZV3dK1kRgm_iDBEoWGiZwHaFN?w=281&h=198&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" }
+  ];
+
+  let index = Math.floor(Math.random() * curiosidades.length);
+  document.getElementById("curiosidadeTexto").style.display = "none";
+  document.getElementById("curiosidadeDetails").style.display = "block";
+  document.getElementById("detalhesCuriosidade").innerText = curiosidades[index].texto;
+  document.getElementById("curiosidadeImagem").src = curiosidades[index].imagem;
+}
+
+function mostrarProximaCuriosidade() {
+  mostrarCuriosidade();
+}
+
+function verificarResposta() {
+  corrigirQuiz();
+}
+
+function verificarDesafio(numero) {
+  const respostas = [
+    "respiração celular",
+    "mitose",
+    "leucócito"
+  ];
+
+  let respostaUsuario = document.getElementById(`respostaDesafio${numero}`).value.trim().toLowerCase();
+  let resultado = document.getElementById(`resultadoDesafio${numero}`);
+
+  if (respostaUsuario === respostas[numero - 1]) {
+    resultado.innerText = "✅ Resposta correta!";
+  } else {
+    resultado.innerText = "❌ Tente novamente.";
+  }
+}
+
+function corrigirQuiz() {
+  const respostasCorretas = ["Pele", "Glóbulo Vermelho", "Gerar energia (ATP)"];
+  const respostasUsuario = [
+    document.querySelector('input[name="q1"]:checked'),
+    document.querySelector('input[name="q2"]:checked'),
+    document.querySelector('input[name="q3"]:checked')
+  ];
+
+  let acertos = 0;
+  respostasUsuario.forEach((resposta, index) => {
+    if (resposta && resposta.value === respostasCorretas[index]) {
+      acertos++;
+    }
+  });
+
+  document.getElementById("pontuacao-final").innerText = `Pontuação: ${acertos}/3`;
+
+  let nivel = "";
+  let badge = "";
+
+  if (acertos === 3) {
+    nivel = "Avançado 🧠";
+    badge = "🏆 Mestre da Biologia!";
+  } else if (acertos === 2) {
+    nivel = "Intermediário 🔬";
+    badge = "🥈 Explorador Científico!";
+  } else {
+    nivel = "Iniciante 🌱";
+    badge = "🥉 Curioso Biológico!";
+  }
+
+  document.getElementById("nivel-conhecimento").innerText = "Nível: " + nivel;
+  document.getElementById("badge-container").innerHTML = `<h3 class="badge-animada">${badge}</h3>`;
+  document.getElementById("som-badge").play();
+
+  let melhor = localStorage.getItem("melhorPontuacao") || 0;
+  if (acertos > melhor) {
+    localStorage.setItem("melhorPontuacao", acertos);
+    melhor = acertos;
+  }
+
+  document.getElementById("melhor-pontuacao").innerText = `🏅 Sua melhor pontuação: ${melhor}/3`;
+
+  document.getElementById("resultado-quiz").scrollIntoView({ behavior: "smooth" });
+}
+
+function exportarResultado() {
+  html2canvas(document.getElementById("resultado-quiz")).then(function(canvas) {
+    let link = document.createElement("a");
+    link.download = "resultado_quiz.png";
+    link.href = canvas.toDataURL();
+    link.click();
+  });
+}
