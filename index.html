@@ -7,6 +7,18 @@
     <meta name="keywords" content="biologia, ciências, quiz, desafios, curiosidades">
     <title>Biologia Fácil</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+      @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.15); }
+        100% { transform: scale(1); }
+      }
+      .badge-animada {
+        font-size: 24px;
+        color: gold;
+        animation: pulse 1s infinite;
+      }
+    </style>
 </head>
 <body>
     <header>
@@ -34,10 +46,9 @@
             <p>A Biologia é uma disciplina que estuda a vida em todas as suas formas. Desde a mais simples bactéria até os organismos mais complexos, como seres humanos e animais, a biologia busca entender as características e processos que regem a vida.</p>
 <p>O termo "biologia" vem do grego "bios", que significa vida, e "logos", que significa estudo ou ciência. Dessa forma, a biologia pode ser definida como a ciência que estuda a vida.</p>
 <p>O estudo em biologia pode ser importante para a humanidade de diversas formas. Por exemplo, a compreensão da biologia dos microrganismos é fundamental para o desenvolvimento de novas vacinas e tratamentos para doenças infecciosas. A pesquisa em biologia também é fundamental para entender como as espécies interagem com seus ambientes e como podemos preservar a biodiversidade e os ecossistemas.</p>
-
         </section>
-
-        <!-- Ramos da Biologia -->
+ 
+               <!-- Ramos da Biologia -->
         <section id="ramos">
             <h2>Principais Ramos da Biologia</h2>
             <ul>
@@ -61,7 +72,7 @@
             </div>
         </section>
 
-        <!-- Quiz -->
+      <!-- Quiz -->
         <section id="quiz">
             <h2>Teste seus Conhecimentos</h2>
             <form id="quizForm">
@@ -88,7 +99,18 @@
             <p id="resultado"></p>
         </section>
 
-        <!-- Glossário -->
+
+        <!-- Resultado do Quiz com Badge -->
+        <section class="section" id="resultado-quiz">
+            <h2>Resultado do Quiz</h2>
+            <p id="pontuacao-final"></p>
+            <p id="nivel-conhecimento"></p>
+            <div id="badge-container"></div>
+            <p id="melhor-pontuacao"></p>
+            <button onclick="exportarResultado()">📤 Exportar Resultado</button>
+        </section>
+
+          <!-- Glossário -->
         <section id="glossario">
             <h2>Glossário de Termos Biológicos</h2>
             <ul>
@@ -98,7 +120,7 @@
             </ul>
         </section>
 
-        <!-- Galeria -->
+              <!-- Galeria -->
         <section id="galeria">
             <h2>Galeria de Imagens</h2>
             <div class="galeria-imagens">
@@ -108,7 +130,7 @@
             </div>
         </section>
 
-        <!-- Vídeos -->
+              <!-- Vídeos -->
         <section id="videos">
             <h2>Vídeos Educativos</h2>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/rjH2xzCwNx0?si=G1i7NJliIOCpMFvI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -141,6 +163,8 @@
         <p>&copy; 2025 - Biologia Fácil</p>
     </footer>
 
+    <audio id="som-badge" src="https://www.fesliyanstudios.com/play-mp3/387" preload="auto"></audio>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
